@@ -16,6 +16,27 @@ def getFilm(request, id):
     serializer = FilmSerializer(film, many=False)
     return Response(serializer.data)
 
+@api_view(['POST'])
+def addFilm(request):
+    serializer = FilmSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
+@api_view(['DELETE'])
+def deleteFilm(request, id):
+    film = Film.objects.get(id=id)
+    film.delete()
+    return Response('Suppression du film réussie')
+
+@api_view(['PUT'])
+def updateFilm(request, id):
+    film = Film.objects.get(id=id)
+    serializer = FilmSerializer(instance=film, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
 @api_view(['GET'])
 def getSpecials(request):
     special = SpecialFilm.objects.all()

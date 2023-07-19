@@ -1,0 +1,44 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #50b3a2;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+button {
+    display: block;
+    width: 200px;
+    height: 45px;
+    margin: 20px auto;
+    background-color: #50b3a2;
+    text-align: center;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    line-height: 45px;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #338a70;
+}
+
+h1, h2, h3 {
+    padding: 0;
+    margin: 0;
+}

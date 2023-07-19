@@ -27,3 +27,24 @@ def getSpecial(request, id):
     special = SpecialFilm.objects.get(id=id)
     serializer = SpecialSerializer(special, many=False)
     return Response(serializer.data)
+
+@api_view(['POST'])
+def addSpecial(request):
+    serializer = SpecialSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
+@api_view(['DELETE'])
+def deleteSpecial(request, id):
+    special = SpecialFilm.objects.get(id=id)
+    special.delete()
+    return Response('Suppression de la programmation réussie')
+
+@api_view(['PUT'])
+def updateSpecial(request, id):
+    special = SpecialFilm.objects.get(id=id)
+    serializer = SpecialSerializer(instance=special, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)

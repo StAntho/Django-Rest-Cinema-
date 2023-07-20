@@ -12,7 +12,7 @@ export default function DetailSpecial() {
   const [backendData, setBackendData] = useState([{}]);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/special/${id}`)
+    fetch(`http://127.0.0.1:8000/film/${id}`)
       .then((response) => response.json())
       .then((data) => setBackendData(data))
       .catch((error) =>
@@ -84,7 +84,7 @@ export default function DetailSpecial() {
           <Button variant="secondary" onClick={handleClose}>
             Annuler
           </Button>
-          <Link to={`/special/delete/${backendData.id}`}>
+          <Link to={`/film/delete/${backendData.id}`}>
             <Button variant="danger">Supprimer</Button>
           </Link>
         </Modal.Footer>

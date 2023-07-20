@@ -1,0 +1,53 @@
+.container {
+    padding: 60px 0;
+}
+
+.no-special {
+    text-align: center;
+    padding: 50px 0;
+    color: #777;
+    font-size: 20px;
+}
+
+.special-card {
+    background-color: #fff;
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 5px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+    text-decoration: none; /* Supprimer le style par défaut des liens */
+    color: inherit; /* Hériter de la couleur de texte par défaut */
+    transition: transform 0.3s, box-shadow 0.3s; /* Pour un effet de survol plus doux */
+}
+
+.special-card:hover {
+    transform: translateY(-5px); /* Un petit effet de "levage" sur le hover */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.12); /* Ombre un peu plus prononcée sur le hover */
+}
+
+.special-card img {
+    width: 100%;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.special-card h2 {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.special-card p {
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.special-card strong {
+    font-weight: bold;
+    color: #333;
+}
+
+button {
+    display: block;
+    width: 160px;
+    margin-top: 15px;
+}

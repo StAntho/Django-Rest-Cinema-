@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import "../styles/DetailFilm.css";
 
-export default function DetailSpecial() {
+export default function DetailFilm() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -25,7 +26,6 @@ export default function DetailSpecial() {
   console.log(backendData);
   return (
     <div className="container">
-      <h1>Programmations spéciales</h1>
       <div className="programmation-card">
         <img src={backendData.image} alt={backendData.name} />
         <h2>{backendData.name}</h2>

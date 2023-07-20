@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Card from "react-bootstrap/Card";
+import "../styles/DeleteFilm.css";
 
-export default function DeleteSpecial() {
+export default function DeleteFilm() {
   const { id } = useParams();
   const [backendData, setBackendData] = useState([{}]);
 

@@ -20,5 +20,5 @@ urlpatterns = [
     path('connexion/', LoginUser.as_view()),
     path('deconnexion/', LogoutUser.as_view()),
     path('profil/', ProfilUser.as_view()),
-    path('reservation/<int:id>/special/<int:id>/seance/<int:id>/place/<int:nb>', BookSeance.as_view()),
+    # path('reservation/<int:id>/special/<int:id>/seance/<int:id>/place/<int:nb>', BookSeance.as_view()),
 ]

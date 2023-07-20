@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "../styles/Login.css";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    username: '',
-    password: ''
+    username: "",
+    password: "",
   });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -18,25 +19,25 @@ const Login = () => {
     event.preventDefault();
 
     // Appeler l'API pour la connexion
-    fetch('http://your-api-endpoint/login', {
-      method: 'POST',
+    fetch("http://your-api-endpoint/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData)
+      body: JSON.stringify(formData),
     })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        // Stocker le token d'accès et mettre à jour l'état de connexion
-        // Par exemple, utiliser localStorage ou des cookies
-        localStorage.setItem('access_token', data.token);
-        alert('Connexion réussie!');
-      } else {
-        alert(data.message);
-      }
-    })
-    .catch(error => console.error('Erreur lors de la connexion:', error));
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          // Stocker le token d'accès et mettre à jour l'état de connexion
+          // Par exemple, utiliser localStorage ou des cookies
+          localStorage.setItem("access_token", data.token);
+          alert("Connexion réussie!");
+        } else {
+          alert(data.message);
+        }
+      })
+      .catch((error) => console.error("Erreur lors de la connexion:", error));
   };
 
   return (

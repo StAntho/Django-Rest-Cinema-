@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'cinema',
     'corsheaders',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [

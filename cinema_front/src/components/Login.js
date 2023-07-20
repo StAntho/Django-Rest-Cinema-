@@ -41,27 +41,29 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <h1>Connexion</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="username"
-          placeholder="Nom d'utilisateur"
-          value={formData.username}
-          onChange={handleInputChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Mot de passe"
-          value={formData.password}
-          onChange={handleInputChange}
-          required
-        />
-        <button type="submit">Se connecter</button>
-      </form>
+    <div className="login-root">
+      <div className="login-container">
+        <h1>Connexion</h1>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="username"
+            placeholder="Nom d'utilisateur"
+            value={formData.username}
+            onChange={handleInputChange}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Mot de passe"
+            value={formData.password}
+            onChange={handleInputChange}
+            required
+          />
+          <button type="submit">Se connecter</button>
+        </form>
+      </div>
     </div>
   );
 };

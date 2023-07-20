@@ -11,18 +11,16 @@ export default function Header() {
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
           <Navbar.Brand href="/">
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" className="header-logo" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
+            <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
+            <Nav.Link href="/">Accueil</Nav.Link>
               <Nav.Link href="/film">Films à la programmation</Nav.Link>
               <Nav.Link href="/special">Programmation spéciale</Nav.Link>
               <Nav.Link href="/login">Connexion</Nav.Link>
+              <Nav.Link href="/register">Inscription</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

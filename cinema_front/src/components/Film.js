@@ -36,12 +36,12 @@ const Film = () => {
             <p>
               <strong>Synopsis:</strong> {programmation.synopsis}
             </p>
-            {/* <p>
+            { <p>
             <strong>Durée:</strong> {programmation.duree} minutes
-          </p> */}
-            {/* <p>
+          </p> }
+            { <p>
             <strong>Heure de programmation:</strong> {programmation.heure}
-          </p> */}
+          </p>}
             <p>
               <strong>Prix:</strong> {programmation.price} €
             </p>
@@ -58,7 +58,8 @@ const Film = () => {
             {isLoggedIn && <button>Réserver</button>}
           </div>
         </Link>
-      ))}
+      ))
+    }
     </div>
   );
 };

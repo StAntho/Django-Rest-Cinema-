@@ -1,48 +1,55 @@
-.showcase {
-    background-color: #333;
-    color: #fff;
-    padding: 100px 0;
-    text-align: center;
+/* Home.css */
+
+.home-root {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
-.showcase h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
+.home-root .container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
 }
 
-.showcase p {
-    font-size: 20px;
+.home-root h1 {
+    font-size: 40px; /* Augmentation de la taille de la police */
+    color: #333;
+    border-bottom: 2px solid #50b3a2; 
+    padding-bottom: 15px; /* Augmentation du padding */
+    margin-top: 30px;     /* Ajout d'une marge en haut */
+    margin-bottom: 40px;  /* Augmentation de la marge en bas */
+    text-align: center;   /* Centrage du texte */
 }
 
-.movie {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 4px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.movie h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.movie p {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.movie img {
-    width: 100%;
+.home-root h2 {
+    font-size: 28px;
+    color: #444;
+    margin-top: 30px;
     margin-bottom: 20px;
+    padding-left: 10px;
+    border-left: 4px solid #50b3a2; 
 }
 
-.movie-info {
-    display: flex;
-    justify-content: space-between;
+.home-root div {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
 }
 
-.no-shows {
-    text-align: center;
-    padding: 50px 0;
+/* Pour le responsive design, si besoin */
+@media (max-width: 768px) {
+    .home-root h1 {
+        font-size: 34px;
+    }
+    .home-root h2 {
+        font-size: 24px;
+    }
+    .home-root .container {
+        width: 95%;
+    }
 }

@@ -17,7 +17,7 @@ urlpatterns = [
     path('special/update/<int:id>/', views.updateSpecial),
 
     path('inscription/', RegisterUser.as_view()),
-    path('connexion/', LoginUser.as_view()),
+    path('login/', LoginUser.as_view()),
     path('deconnexion/', LogoutUser.as_view()),
     path('profil/', ProfilUser.as_view()),
     # path('reservation/<int:id>/special/<int:id>/seance/<int:id>/place/<int:nb>', BookSeance.as_view()),

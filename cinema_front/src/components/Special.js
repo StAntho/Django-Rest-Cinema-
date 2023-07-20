@@ -54,7 +54,7 @@ export default function Special() {
             </p>
             <p>
               <strong>Âge minimum:</strong>{" "}
-              {programmation.limit_age == 0
+              {programmation.limit_age === 0
                 ? "Pas de limite d'age"
                 : programmation.limit_age}{" "}
               ans

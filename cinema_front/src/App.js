@@ -11,6 +11,7 @@ import DetailSpecial from "./components/DetailSpecial";
 import DeleteFilm from "./components/DeleteFilm";
 import DeleteSpecial from "./components/DeleteSpecial";
 import DetailFilm from "./components/DetailFilm";
+import Logout from "./components/Logout";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/special/delete/:id" element={<DeleteSpecial />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </BrowserRouter>
   );

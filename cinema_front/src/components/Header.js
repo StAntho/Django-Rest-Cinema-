@@ -22,7 +22,14 @@ export default function Header() {
             >
               <Nav.Link href="/film">Films à la programmation</Nav.Link>
               <Nav.Link href="/special">Programmation spéciale</Nav.Link>
-              <Nav.Link href="/login">Connexion</Nav.Link>
+              {localStorage.getItem("access_token") === null ? (
+                <>
+                  <Nav.Link href="/login">Connexion</Nav.Link>
+                  <Nav.Link href="/register">Inscription</Nav.Link>
+                </>
+              ) : (
+                <Nav.Link href="/logout">Déconnexion</Nav.Link>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

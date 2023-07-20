@@ -53,10 +53,10 @@ def getSpecials(request):
 class DetailSpecial(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
-def getSpecial(self, request, id):
-    special = SpecialFilm.objects.get(id=id)
-    serializer = SpecialSerializer(special, many=False)
-    return Response(serializer.data)
+    def get(self, request, id):
+        special = SpecialFilm.objects.get(id=id)
+        serializer = SpecialSerializer(special, many=False)
+        return Response(serializer.data)
 
 @api_view(['POST'])
 def addSpecial(request):

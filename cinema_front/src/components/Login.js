@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "../styles/Login.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -17,9 +20,9 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    console.log(formData);
     // Appeler l'API pour la connexion
-    fetch("http://your-api-endpoint/login", {
+    fetch("http://127.0.0.1:8000/login/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,13 +31,17 @@ const Login = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.success) {
+        console.log(data);
+        if (data.status === 200) {
+          console.log(data);
           // Stocker le token d'accès et mettre à jour l'état de connexion
           // Par exemple, utiliser localStorage ou des cookies
           localStorage.setItem("access_token", data.token);
+          // localStorage.setItem("items", JSON.stringify(data.token));
           alert("Connexion réussie!");
+          navigate("/");
         } else {
-          alert(data.message);
+          alert("data.message");
         }
       })
       .catch((error) => console.error("Erreur lors de la connexion:", error));

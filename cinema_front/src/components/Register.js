@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import axios from "axios";
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
+    username: "",
+    password: "",
   });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -20,28 +19,18 @@ const Register = () => {
     event.preventDefault();
 
     // Validation de base (à améliorer selon les besoins)
-    if (formData.password !== formData.confirmPassword) {
-      alert('Les mots de passe ne correspondent pas!');
-      return;
-    }
-
-    // Appeler l'API pour l'inscription
-    fetch('http://your-api-endpoint/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        alert('Inscription réussie! Veuillez vous connecter.');
-      } else {
-        alert(data.message);
-      }
-    })
-    .catch(error => console.error('Erreur lors de l\'inscription:', error));
+    // if (formData.password !== formData.confirmPassword) {
+    //   alert("Les mots de passe ne correspondent pas!");
+    //   return;
+    // }
+    console.log(formData);
+    axios
+      .post("http://127.0.0.1:8000/inscription/", formData)
+      .then((response) => {
+        console.log(response);
+        alert("Inscription réussie!");
+      })
+      .catch((error) => console.error("Erreur lors de l'inscription:", error));
   };
 
   return (

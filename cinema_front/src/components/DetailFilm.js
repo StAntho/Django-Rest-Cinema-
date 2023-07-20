@@ -24,6 +24,8 @@ export default function DetailFilm() {
       );
   }, []);
   console.log(backendData);
+  console.log(backendData.seance);
+  const seance = backendData.seance;
   return (
     <div className="container">
       <div className="programmation-card">
@@ -53,20 +55,30 @@ export default function DetailFilm() {
           ans
         </p>
       </div>
+
       <div className="programmation-card">
-        <h2>Horaires</h2>
-        <p>
-          <strong>Heure de programmation:</strong> {backendData.heure}
-        </p>
-        <p>
-          <strong>Date de programmation:</strong> {backendData.date}
-        </p>
-        <p>
-          <strong>Durée:</strong> {backendData.duree} minutes
-        </p>
-        <p>
-          <strong>Type:</strong> {backendData.type}
-        </p>
+        {seance ? (
+          <>
+            {seance.map(function (s, i) {
+              return <p>{seance.salle}</p>;
+            })}
+            <h2>{seance.length}</h2>
+            <p>
+              <strong>Heure de programmation:</strong> {backendData.heure}
+            </p>
+            <p>
+              <strong>Date de programmation:</strong> {backendData.date}
+            </p>
+            <p>
+              <strong>Durée:</strong> {backendData.duree} minutes
+            </p>
+            <p>
+              <strong>Type:</strong> {backendData.type}
+            </p>
+          </>
+        ) : (
+          <p>Pas de séance pour ce film</p>
+        )}
       </div>
       <Button variant="danger" onClick={handleShow}>
         Supprimer

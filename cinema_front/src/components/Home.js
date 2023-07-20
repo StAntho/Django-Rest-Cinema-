@@ -1,6 +1,7 @@
 import "../styles/Home.css";
 
 export default function Home() {
+  console.log(localStorage.getItem("access_token"));
   return (
     <div>
       <h1>Home</h1>

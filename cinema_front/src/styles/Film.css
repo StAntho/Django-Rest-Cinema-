@@ -1,0 +1,51 @@
+.container {
+    padding: 50px 0;
+}
+
+.no-programmation {
+    text-align: center;
+    padding: 50px 0;
+    color: #777;
+    font-size: 20px;
+}
+
+.programmation-card {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none; /* Pour enlever le style par défaut des liens */
+    color: inherit; /* Pour hériter de la couleur de texte par défaut */
+}
+
+.programmation-card:hover {
+    background-color: #f4f4f4; /* Une petite nuance de couleur sur le hover pour montrer l'interactivité */
+}
+
+.programmation-card img {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.programmation-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.programmation-card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.programmation-card strong {
+    font-weight: bold;
+    color: #333; /* Une couleur légèrement plus foncée pour les titres */
+}
+
+button {
+    display: block;
+    width: 150px; /* Un peu moins large que le bouton standard pour mieux s'adapter à la carte */
+    margin-top: 10px; /* Ajout d'une marge au-dessus du bouton */
+}

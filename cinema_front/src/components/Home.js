@@ -3,13 +3,13 @@ import "../styles/Home.css";
 export default function Home() {
   console.log(localStorage.getItem("access_token"));
   return (
-    <div>
-      <h1>Home</h1>
+    <div className="home-root">
+      <h1>Bienvenue sur Mon Siège à Rêve.</h1>
       <div>
         <h2>Présentation du cinéma</h2>
       </div>
       <div>
-        <h2>Deniers films à l'affiches</h2>
+        <h2>Derniers films à l'affiche</h2>
       </div>
       <div>
         <h2>Prochains films spécial</h2>

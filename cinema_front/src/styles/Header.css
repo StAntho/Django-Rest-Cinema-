@@ -1,28 +1,32 @@
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #50b3a2;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
+/* Header.css */
+
+.bg-body-tertiary {
+    background-color: #333;
+    border-bottom: 1px solid #ddd;
 }
 
-header .logo {
-    font-size: 24px;
-    margin-left: 20px;
+.header-logo {
+    width: 120px; /* Ajustez la taille du logo comme vous le souhaitez */
+    height: auto; /* Gardez les proportions du logo */
 }
 
-header nav {
-    margin-right: 20px;
+.navbar {
+    font-family: Arial, sans-serif;
 }
 
-header nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
+.nav-link {
+    color: #fff;
+    font-size: 18px;
+    margin-right: 15px;
 }
 
-header nav a:hover {
-    text-decoration: underline;
+.nav-link:hover {
+    color: #50b3a2;
+}
+
+/* Pour améliorer la lisibilité sur les petits écrans */
+@media (max-width: 768px) {
+    .nav-link {
+        font-size: 16px;
+    }
 }

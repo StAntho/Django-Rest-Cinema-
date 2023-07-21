@@ -2,7 +2,7 @@
     padding: 50px 0;
 }
 
-.programmation-card {
+.detail-card {
     background-color: #fff;
     padding: 20px;
     margin: 20px 0;
@@ -10,22 +10,22 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.programmation-card h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+.detail-card h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
 }
 
-.programmation-card p {
-    font-size: 16px;
-    margin-bottom: 10px;
+.detail-card p {
+    font-size: 18px;
+    margin-bottom: 15px;
 }
 
-.programmation-card img {
-    width: 100%;
-    margin-bottom: 20px;
+.detail-card img {
+    width: 60%;
+    margin-bottom: 25px;
     border-radius: 4px;
 }
 
 .modal-title em {
-    color: #e74c3c; /* Rouge pour mettre en évidence le nom du film à supprimer */
+    color: #e74c3c; 
 }

@@ -36,17 +36,8 @@ export default function DetailFilm() {
           <strong>Synopsis:</strong> {backendData.synopsis}
         </p>
         <p>
-          <strong>Prix unique:</strong> {backendData.price} €
-        </p>
-        <p>
           <strong>Surcoût 3D:</strong>{" "}
           {backendData.additionnal_price ? "3.20€" : "Sans surcoût"}
-        </p>
-        <p>
-          <strong>Salle:</strong> {backendData.salle}
-        </p>
-        <p>
-          <strong>Places restantes:</strong> {backendData.limit_place}
         </p>
         <p>
           <strong>Âge minimum:</strong>{" "}

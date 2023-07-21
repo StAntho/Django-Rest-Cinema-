@@ -24,7 +24,11 @@
 }
 
 .programmation-card img {
-    width: 100%;
+    width: 25%;
+    margin-left: 37%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
     border-radius: 4px;
 }

@@ -33,12 +33,6 @@ export default function Special() {
             <p>
               <strong>Synopsis:</strong> {programmation.synopsis}
             </p>
-            {/* <p>
-            <strong>Durée:</strong> {programmation.duree} minutes
-          </p> */}
-            {/* <p>
-            <strong>Heure de programmation:</strong> {programmation.heure}
-          </p> */}
             <p>
               <strong>Prix unique:</strong> {programmation.price} €
             </p>

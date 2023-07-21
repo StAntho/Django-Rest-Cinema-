@@ -7,11 +7,11 @@ class SeanceSerializer(serializers.ModelSerializer):
         model = Seance
         fields = '__all__'
 
-    # def update(self, instance, validated_data):
-    #     instance.booked_place = validated_data.get('booked_place', instance.booked_place)
-    #     instance.limit_place = validated_data.get('limit_place', instance.limit_place)
-    #     instance.save()
-    #     return instance    
+    def update(self, instance, validated_data):
+        instance.booked_place += validated_data.get('booked_place', instance.booked_place)
+        instance.limit_place -= validated_data.get('limit_place', 0)
+        instance.save()
+        return instance   
 
 class FilmSerializer(serializers.ModelSerializer):
     seance = SeanceSerializer(many=True, read_only=True)

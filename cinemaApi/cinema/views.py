@@ -54,13 +54,21 @@ def updateFilm(request, id):
 
 @api_view(['PATCH'])
 def bookSeance(request, id):
-    seance = Seance.objects.get(id=id)
+    try:
+        seance = Seance.objects.get(id=id)
+    except Seance.DoesNotExist:
+        return Response({"message": "Seance not found."}, status=404)
+
+    # Assuming you want to increase booked_place and decrease limit_place by 1
     seance.booked_place += 1
     seance.limit_place -= 1
-    serializer = SeanceSerializer(instance=seance, data=request.data)
+
+    serializer = SeanceSerializer(instance=seance, data=request.data, partial=True)
     if serializer.is_valid():
-        seance.save()
-    return Response(serializer.data)
+        serializer.save()
+        return Response(serializer.data)
+    else:
+        return Response(serializer.errors, status=400)
 
 @api_view(['GET'])
 def getSpecials(request):

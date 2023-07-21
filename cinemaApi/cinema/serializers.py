@@ -5,7 +5,7 @@ from .models import *
 class SeanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Seance
-        fields = ['booked_place', 'limit_place']
+        fields = '__all__'
 
     # def update(self, instance, validated_data):
     #     instance.booked_place = validated_data.get('booked_place', instance.booked_place)

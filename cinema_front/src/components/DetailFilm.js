@@ -66,7 +66,9 @@ export default function DetailFilm() {
                     {s.salle}
                   </Card.Subtitle>
                   <Card.Text>Places restantes: {s.limit_place}</Card.Text>
-                  <Card.Link href="#">Réserver ma place</Card.Link>
+                  <Card.Link href={`/reservation/seance/${s.id}`}>
+                    Réserver ma place
+                  </Card.Link>
                 </Card.Body>
               </Card>
             ))}

@@ -12,16 +12,10 @@ import DeleteFilm from "./components/DeleteFilm";
 import DeleteSpecial from "./components/DeleteSpecial";
 import DetailFilm from "./components/DetailFilm";
 import Logout from "./components/Logout";
+import BookSeance from "./components/BookSeance";
 
 const App = () => {
   return (
-    //    <AuthProvider>
-    //      <div>
-    //        <Home />
-    //        <Login />
-    //        <Register />
-    //      </div>
-    //    </AuthProvider>
     <BrowserRouter>
       <Header />
       <Routes>
@@ -35,6 +29,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/reservation/seance/:id" element={<BookSeance />} />
       </Routes>
     </BrowserRouter>
   );

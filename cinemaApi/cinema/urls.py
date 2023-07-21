@@ -3,6 +3,8 @@ from . import views
 from .views import *
 
 urlpatterns = [
+    path('home/', views.getHome),
+
     path('film/', views.getFilms),
     path('film/<int:id>/', views.getFilm),
     path('film/add', views.addFilm),
@@ -20,5 +22,6 @@ urlpatterns = [
     path('login/', LoginUser.as_view()),
     path('deconnexion/', LogoutUser.as_view()),
     path('profil/', ProfilUser.as_view()),
-    # path('reservation/<int:id>/special/<int:id>/seance/<int:id>/place/<int:nb>', BookSeance.as_view()),
+    # path('reservation/seance/<int:id>/', BookSeance.as_view()),
+    path('reservation/seance/<int:id>/', views.bookSeance),
 ]

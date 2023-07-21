@@ -1,11 +1,17 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import *
-
+    
 class SeanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Seance
-        fields = '__all__'
+        fields = ['booked_place', 'limit_place']
+
+    # def update(self, instance, validated_data):
+    #     instance.booked_place = validated_data.get('booked_place', instance.booked_place)
+    #     instance.limit_place = validated_data.get('limit_place', instance.limit_place)
+    #     instance.save()
+    #     return instance    
 
 class FilmSerializer(serializers.ModelSerializer):
     seance = SeanceSerializer(many=True, read_only=True)

@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "../styles/DetailFilm.css";
+import Card from "react-bootstrap/Card";
 
 export default function DetailFilm() {
   const [show, setShow] = useState(false);
@@ -56,25 +57,28 @@ export default function DetailFilm() {
         </p>
       </div>
 
-      <div className="programmation-card">
+      <div
+        className="programmation-card"
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
+        }}
+      >
         {seance ? (
           <>
-            {seance.map(function (s, i) {
-              return <p>{seance.salle}</p>;
-            })}
-            <h2>{seance.length}</h2>
-            <p>
-              <strong>Heure de programmation:</strong> {backendData.heure}
-            </p>
-            <p>
-              <strong>Date de programmation:</strong> {backendData.date}
-            </p>
-            <p>
-              <strong>Durée:</strong> {backendData.duree} minutes
-            </p>
-            <p>
-              <strong>Type:</strong> {backendData.type}
-            </p>
+            {seance.map((s, i) => (
+              <Card style={{ width: "18rem" }} key={i}>
+                <Card.Body>
+                  <Card.Title>Le {s.time}</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">
+                    {s.salle}
+                  </Card.Subtitle>
+                  <Card.Text>Places restantes: {s.limit_place}</Card.Text>
+                  <Card.Link href="#">Réserver ma place</Card.Link>
+                </Card.Body>
+              </Card>
+            ))}
           </>
         ) : (
           <p>Pas de séance pour ce film</p>

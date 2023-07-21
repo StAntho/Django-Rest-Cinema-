@@ -1,15 +1,24 @@
 from django.shortcuts import render
-from .serializers import FilmSerializer, SpecialSerializer, UserSerializer
+from .serializers import FilmSerializer, SpecialSerializer, UserSerializer, SeanceSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
-from .models import Film, SpecialFilm
+from .models import *
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.views import ObtainAuthToken
+from django.db.models.functions import Lower
 
+@api_view(['GET'])
+def getHome(request):
+    film = Film.objects.all().order_by(Lower("id").desc())[0:2]
+    specials = SpecialFilm.objects.all().order_by(Lower("id").desc())[0:2]
+    serializerF = FilmSerializer(film, many=True)
+    serializerS = SpecialSerializer(specials, many=True)
+    return Response({'films':serializerF.data, 'specials':serializerS.data})  
+    
 @api_view(['GET'])
 def getFilms(request):
     film = Film.objects.all()
@@ -41,6 +50,16 @@ def updateFilm(request, id):
     serializer = FilmSerializer(instance=film, data=request.data)
     if serializer.is_valid():
         serializer.save()
+    return Response(serializer.data)
+
+@api_view(['PATCH'])
+def bookSeance(request, id):
+    seance = Seance.objects.get(id=id)
+    seance.booked_place += 1
+    seance.limit_place -= 1
+    serializer = SeanceSerializer(instance=seance, data=request.data)
+    if serializer.is_valid():
+        seance.save()
     return Response(serializer.data)
 
 @api_view(['GET'])
@@ -125,14 +144,18 @@ class ProfilUser(APIView):
             return Response({'status':200, 'données':serializer.data, 'token':str(token)})
         return Response({'status':403, 'erreur':serializer.errors})
     
-class BookSeance(APIView):
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
-    def post(self, request, id_film, id_seance, nb_places):
-        user = request.user
-        token, _ = Token.objects.get_or_create(user=user)
-        serializer = UserSerializer(instance=user, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response({'status':200, 'données':serializer.data, 'token':str(token)})
-        return Response({'status':403, 'erreur':serializer.errors})
+# class BookSeance(APIView):
+#     authentication_classes = [TokenAuthentication]
+#     permission_classes = [IsAuthenticated]
+#     def post(self, request, id_seance):
+#         seance = Seance.objects.get(id=id_seance)
+#         serializer = SeanceSerializer(instance=seance, data=request.data)
+#         user = request.user
+#         token, _ = Token.objects.get_or_create(user=user)
+#         serializer = UserSerializer(instance=user, data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response({'status':200, 'données':serializer.data, 'token':str(token)})
+#         return Response({'status':403, 'erreur':serializer.errors})
+     
+     
